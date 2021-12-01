@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [roomId, setRoomId] = useState("");
+  const [name, setName] = useState("");
 
   const handleRoomChange = (evt) => {
-    setRoomId(evt.target.value);
+    setName(evt.target.value);
   };
 
   const login = () => {
-    navigate(`/${roomId}`);
+    navigate(`/${name}`);
   };
 
   return (
@@ -19,12 +19,12 @@ const Login = () => {
       <Form onSubmit={login}>
         <Row>
           <Form.Group as={Col}>
-            <Form.Label>Room Id</Form.Label>
-            <Form.Control onChange={handleRoomChange} value={roomId} />
+            <Form.Label>Name</Form.Label>
+            <Form.Control onChange={handleRoomChange} value={name} />
           </Form.Group>
         </Row>
         <Row>
-          <Button type="submit" disabled={!roomId} variant="primary">
+          <Button type="submit" disabled={!name} variant="primary">
             Join
           </Button>
         </Row>
