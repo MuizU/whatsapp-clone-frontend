@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [roomId, setRoomId] = useState("");
 
   const handleRoomChange = (evt) => {
@@ -11,7 +11,7 @@ const Login = () => {
   };
 
   const login = () => {
-    history.push(`/${roomId}`);
+    navigate(`/${roomId}`);
   };
 
   return (
@@ -19,12 +19,14 @@ const Login = () => {
       <Form onSubmit={login}>
         <Row>
           <Form.Group as={Col}>
-            <Form.Label>Room</Form.Label>
+            <Form.Label>Room Id</Form.Label>
             <Form.Control onChange={handleRoomChange} value={roomId} />
           </Form.Group>
         </Row>
         <Row>
-          <Button variant="primary">Join</Button>
+          <Button type="submit" disabled={!roomId} variant="primary">
+            Join
+          </Button>
         </Row>
       </Form>
     </Container>

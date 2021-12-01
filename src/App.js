@@ -1,12 +1,13 @@
-import logo from "./logo.svg";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./features/login/Login";
+import Chat from "./features/chat/Chat";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" />
-        <Route exact path="/:roomId" />
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/:roomId" element={<Chat />} />
       </Routes>
     </Router>
   );
