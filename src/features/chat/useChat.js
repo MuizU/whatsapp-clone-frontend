@@ -24,7 +24,7 @@ const useChat = (name) => {
     return () => {
       socketRef.current.disconnect();
     };
-  }, [name]);
+  }, [name,messages]);
 
   const sendMessage = ({ messageBody, name }) => {
     socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
