@@ -19,7 +19,7 @@ const Chat = () => {
   return (
     <Container>
       <Row>
-        <Col sm="12">
+        <Col sm="12" className="d-flex justify-content-center">
           <h1>Room {roomId}</h1>
         </Col>
       </Row>
@@ -27,7 +27,7 @@ const Chat = () => {
         {messages.map((msg, i) => (
           <>
             {!!msg.ownedByCurrentUser ? (
-              <Col sm="4">
+              <Col sm="4" className="mt-1 mb-1">
                 <Badge pill bg={"primary"} key={i}>
                   {msg.body}
                 </Badge>
@@ -37,7 +37,7 @@ const Chat = () => {
             )}
             <Col sm="4" />
             {!msg.ownedByCurrentUser ? (
-              <Col sm="4">
+              <Col sm="4" className="mb-1 mt-1">
                 <Badge pill bg={"dark"} key={i}>
                   {msg.body}
                 </Badge>
