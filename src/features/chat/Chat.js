@@ -12,7 +12,6 @@ const Chat = () => {
     setNewMessage(evt.target.value);
   };
   const submitMessage = () => {
-    console.log("HITT");
     sendMessage(newMessage);
     setNewMessage("");
   };
