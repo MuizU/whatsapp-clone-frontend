@@ -23,7 +23,7 @@ const Chat = () => {
           <h1>{name}&#39;s Chat</h1>
         </Col>
       </Row>
-      <Row>
+      <Row className={messages.length > 0 ? "border border-dark" : ""}>
         {messages.map((msg, i) => (
           <>
             {!msg.ownedByCurrentUser ? (
@@ -55,7 +55,7 @@ const Chat = () => {
         ))}
       </Row>
       <Form>
-        <Row>
+        <Row className="mt-4">
           <Form.Group as={Col}>
             <Form.Control
               type="text"
@@ -65,7 +65,7 @@ const Chat = () => {
             />
           </Form.Group>
         </Row>
-        <Row>
+        <Row className="mt-4">
           <Col sm="4" />
           <Col sm="4">
             <Button
