@@ -14,7 +14,7 @@ const Chat = () => {
   const submitMessage = () => {
     console.log("HITT");
     sendMessage(newMessage);
-    // setNewMessage("");
+    setNewMessage("");
   };
 
   return (
@@ -26,13 +26,27 @@ const Chat = () => {
       </Row>
       <Row>
         {messages.map((msg, i) => (
-          <Badge
-            pill
-            bg={!!msg.ownedByCurrentUser ? "primary" : "dark"}
-            key={i}
-          >
-            {msg.body}
-          </Badge>
+          <>
+            {!!msg.ownedByCurrentUser ? (
+              <Col sm="4">
+                <Badge pill bg={"primary"} key={i}>
+                  {msg.body}
+                </Badge>
+              </Col>
+            ) : (
+              <Col sm="4" />
+            )}
+            <Col sm="4" />
+            {!msg.ownedByCurrentUser ? (
+              <Col sm="4">
+                <Badge pill bg={"dark"} key={i}>
+                  {msg.body}
+                </Badge>
+              </Col>
+            ) : (
+              <Col sm="4" />
+            )}
+          </>
         ))}
       </Row>
       <Form>
@@ -49,7 +63,11 @@ const Chat = () => {
         <Row>
           <Col sm="4" />
           <Col sm="4">
-            <Button onClick={submitMessage} variant="primary">
+            <Button
+              disabled={!newMessage}
+              onClick={submitMessage}
+              variant="primary"
+            >
               Send Message
             </Button>
           </Col>
