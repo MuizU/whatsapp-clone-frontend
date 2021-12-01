@@ -18,12 +18,12 @@ const Login = () => {
     <Container>
       <Form onSubmit={login}>
         <Row>
-          <Form.Group as={Col}>
+          <Form.Group as={Col} className="mt-5">
             <Form.Label>Name</Form.Label>
             <Form.Control onChange={handleRoomChange} value={name} />
           </Form.Group>
         </Row>
-        <Row>
+        <Row className="mt-3">
           <Button type="submit" disabled={!name} variant="primary">
             Join
           </Button>
